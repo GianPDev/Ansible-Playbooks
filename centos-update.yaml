@@ -1,0 +1,9 @@
+---
+- name: Update CentOS systems
+  hosts: centos
+  become: yes
+  tasks:
+   - name: update cache
+     yum: update_cache=yes
+   - name: update packages
+     yum: name=* state=latest

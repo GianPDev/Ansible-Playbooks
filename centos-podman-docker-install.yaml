@@ -1,0 +1,21 @@
+---
+- name: Install Podman
+  hosts: centos
+  become: yes
+  tasks:
+    - name: update cache
+      yum: update_cache=yes
+    - name: Install Podman
+      package:
+        name: "podman"
+        state: present
+    - name: Install Docker
+      package:
+        name: "docker"
+        state: present
+    - name: Install Podman-compose via pip
+      pip:
+        name: podman-compose
+    - name: Install docker-compose
+      pip:
+        name: "docker-compose"

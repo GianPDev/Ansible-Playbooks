@@ -1,0 +1,11 @@
+---
+- name: Install Dev Tools 
+  hosts: centos
+  become: yes
+  tasks:
+   - name: update cache
+     yum: update_cache=yes
+   - name: install epel-release
+     yum: name=epel-release state=latest
+   - name: group install dev tools
+     yum: name="@Development tools" state=latest

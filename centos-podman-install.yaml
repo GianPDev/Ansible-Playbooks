@@ -1,0 +1,12 @@
+---
+- name: Install Podman
+  hosts: centos
+  become: yes
+  tasks:
+    - name: update cache
+      yum: update_cache=yes
+    - name: Install Podman
+      package:
+        name: "podman"
+        state: present
+
