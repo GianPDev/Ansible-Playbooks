@@ -13,9 +13,16 @@
       package:
         name: "docker"
         state: present
-    - name: Install Podman-compose via pip
+    - name: Remove pip podman compose 
       pip:
         name: podman-compose
+        state: absent
+    - name: Install podman-compose via git
+      shell: curl -o /usr/local/bin/podman-compose https://raw.githubusercontent.com/containers/podman-compose/devel/podman_compose.py
+      args:
+        warn: no
+    - name: chmod permissions of file
+      shell: chmod +x /usr/local/bin/podman-compose
     - name: Install docker-compose
       pip:
         name: "docker-compose"

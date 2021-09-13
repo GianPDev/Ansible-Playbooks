@@ -1,0 +1,12 @@
+---
+- name: remove fzf
+  hosts: centos
+  tasks:
+    - name: uninstall fzf --all
+      shell: ~/.fzf/uninstall
+      args:
+        warn: no
+    - name: delete .fzf folder
+      shell: rm -rf ~/.fzf
+      args:
+        warn: no

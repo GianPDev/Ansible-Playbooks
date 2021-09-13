@@ -1,0 +1,17 @@
+---
+- name: Install podman-compose-git.yaml
+  hosts: centos
+  become: yes
+  tasks:
+    - name: remove pip version of podman-compose
+      pip:
+        name: podman-compose
+        state: absent
+    - name: Globally install git version of podman-compose 
+      shell: curl -o /usr/local/bin/podman-compose https://raw.githubusercontent.com/containers/podman-compose/devel/podman_compose.py
+      args:
+        warn: no
+    - name: Fix podman-compose permissions
+      shell: chmod +x /usr/local/bin/podman-compose
+      args:
+        warn: no

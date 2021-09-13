@@ -1,0 +1,9 @@
+---
+- name: start podman socket service
+  hosts: centos
+  become: yes
+  tasks:
+   - name: start podman service
+     ansible.builtin.systemd:
+      state: started
+      name: podman.socket
