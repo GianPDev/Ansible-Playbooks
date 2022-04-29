@@ -1,0 +1,12 @@
+---
+- name: Install Mosh (ssh alternative)
+  hosts: contabo
+  become: yes
+  tasks:
+    - name: update cache
+      yum: update_cache=yes
+    - name: Install mosh
+      package:
+        name: "mosh"
+        state: present
+

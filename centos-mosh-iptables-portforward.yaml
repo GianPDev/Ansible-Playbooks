@@ -1,0 +1,9 @@
+---
+- name: allow_60000_61000
+  iptables:
+    chain: INPUT
+    protocol: udp
+    match: udp
+    jump: ACCEPT
+    action: insert
+    to_port: 60000:61000
