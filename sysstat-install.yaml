@@ -1,13 +1,13 @@
 ---
-- name: Install podman
+- name: Install sysstat
   hosts: "{{ select_hosts }}"
   become: yes
   tasks:
     - name: update cache
       yum: update_cache=yes
-    - name: Install podman
+    - name: Install sysstat
       package:
-        name: "podman"
+        name: "sysstat"
         state: present
 
 

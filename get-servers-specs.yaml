@@ -1,0 +1,7 @@
+---
+- name: Get Server Specs
+  hosts: "{{ select_hosts }}"
+  #become: yes
+  tasks:
+    - name: Run script to get server specs
+      script: ./get-linux-specs.sh

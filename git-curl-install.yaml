@@ -1,6 +1,6 @@
 ---
 - name: Install curl and git
-  hosts: "{{ hosts }}"
+  hosts: "{{ select_hosts }}"
   become: yes
   tasks:
     - name: update cache

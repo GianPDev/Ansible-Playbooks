@@ -1,6 +1,6 @@
 ---
 - name: install fzf
-  hosts: "{{ hosts }}"
+  hosts: "{{ select_hosts }}"
   tasks:
     - name: download fzf 
       shell: git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
