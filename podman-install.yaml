@@ -1,0 +1,13 @@
+---
+- name: Install podman
+  hosts: "{{ hosts }}"
+  become: yes
+  tasks:
+    - name: update cache
+      yum: update_cache=yes
+    - name: Install podman
+      package:
+        name: "podman"
+        state: present
+
+

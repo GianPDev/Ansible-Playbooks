@@ -1,0 +1,12 @@
+---
+- name: install fzf
+  hosts: "{{ hosts }}"
+  tasks:
+    - name: download fzf 
+      shell: git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
+      args:
+        warn: no
+    - name: install fzf --all
+      shell: ~/.fzf/install --all
+      args:
+        warn: no

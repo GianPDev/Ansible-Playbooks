@@ -1,6 +1,6 @@
 ---
 - name: Update CentOS systems
-  hosts: "{{ hosts }}"
+  hosts: contabo
   become: yes
   tasks:
    - name: update cache

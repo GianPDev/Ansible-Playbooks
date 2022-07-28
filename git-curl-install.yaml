@@ -1,0 +1,17 @@
+---
+- name: Install curl and git
+  hosts: "{{ hosts }}"
+  become: yes
+  tasks:
+    - name: update cache
+      yum: update_cache=yes
+    - name: Install curl
+      package:
+        name: "curl"
+        state: present
+    - name: Install git
+      package:
+        name: "git"
+        state: present
+
+
