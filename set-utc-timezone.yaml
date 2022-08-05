@@ -1,0 +1,14 @@
+---
+- name: Configure the Timezone
+  hosts: "{{ select_hosts }}"
+  become: yes
+  tasks:
+    - name: Check timezone BEFORE
+      command: timedatectl
+    - name: Change timezone to UTC
+      timezone:
+        name: UTC
+    - name: Check timezone AFTER
+      command: timedatectl
+    - name: Restart crond
+      command: systemctl restart crond.service
