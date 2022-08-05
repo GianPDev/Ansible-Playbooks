@@ -1,0 +1,21 @@
+---
+- name: Install Selinux Utils
+  hosts: "{{ select_hosts }}"
+  become: yes
+  tasks:
+    - block:
+        - name: update cache
+          yum: update_cache=yes
+        - name: Install policycoreutils
+          package:
+            name: "policycoreutils"
+            state: present
+        - name: Install policycoreutils-python
+          package:
+            name: "policycoreutils-python"
+            state: present
+      rescue:
+        - name: Rescue - trying to install policycoreutils-python-utils instead
+          package:
+            name: "policycoreutils-python-utils"
+            state: present
